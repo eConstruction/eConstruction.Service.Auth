@@ -1,0 +1,6 @@
+@eConstruction.Service.Auth_HostAddress = http://localhost:5171
+
+GET {{eConstruction.Service.Auth_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
