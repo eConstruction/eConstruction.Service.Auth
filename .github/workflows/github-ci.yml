@@ -26,7 +26,7 @@ jobs:
 
     - name: Build image for Auth Service
       run: |
-        docker build -t ${{ steps.set_tag.outputs.image_tag }} -f ./eConstruction.Service.Auth/Dockerfile .
+        docker build -t ${{ steps.set_tag.outputs.image_tag }} -f Dockerfile .
 
   push-to-ecr:
     needs: build-auth
@@ -52,5 +52,4 @@ jobs:
         ECR_REPOSITORY: econstruction-auth
         IMAGE_TAG: ${{ needs.build-auth.outputs.image_tag }}
       run: |
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f ./eConstruction.Service.Auth/Dockerfile .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
