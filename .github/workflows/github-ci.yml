@@ -26,7 +26,7 @@ jobs:
 
     - name: Build image for Auth Service
       run: |
-        docker build -t ${{ steps.login-ecr.outputs.registry }}/econstruction-auth:${{ steps.set_tag.outputs.image_tag }} -f Dockerfile .
+        docker build -t ${{ steps.set_tag.outputs.image_tag }} -f Dockerfile .
 
   push-to-ecr:
     needs: build-auth
@@ -48,4 +48,4 @@ jobs:
 
     - name: Push the Image to Amazon ECR
       run: |
-        docker push ${{ steps.login-ecr.outputs.registry }}/econstruction-auth:${{ needs.build-auth.outputs.image_tag }}
+        docker push ${{ steps.login-ecr.outputs.registry }}/${{ needs.build-auth.outputs.image_tag }}
