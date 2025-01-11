@@ -52,4 +52,5 @@ jobs:
         ECR_REPOSITORY: econstruction-auth
         IMAGE_TAG: ${{ needs.build-auth.outputs.image_tag }}
       run: |
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f Dockerfile .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
