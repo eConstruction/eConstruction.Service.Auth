@@ -48,4 +48,5 @@ jobs:
 
     - name: Push the Image to Amazon ECR
       run: |
+        docker build -t ${{ steps.login-ecr.outputs.registry }}/${{ needs.build-auth.outputs.image_tag }} -f Dockerfile .
         docker push ${{ steps.login-ecr.outputs.registry }}/${{ needs.build-auth.outputs.image_tag }}
