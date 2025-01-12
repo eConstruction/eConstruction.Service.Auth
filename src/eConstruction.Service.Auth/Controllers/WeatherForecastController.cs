@@ -4,7 +4,7 @@ namespace eConstruction.Service.Auth.Controllers
 {
     [ApiController]
     [ApiExplorerSettings(GroupName = "v1")]
-    [Route("[controller]")]
+    [Route("api/v1/auth/")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
@@ -28,7 +28,7 @@ namespace eConstruction.Service.Auth.Controllers
             _logger = logger;
         }
 
-        [HttpGet(Name = "GetWeatherForecastNow")]
+        [HttpGet]
         public IEnumerable<WeatherForecast> GetNow()
         {
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
