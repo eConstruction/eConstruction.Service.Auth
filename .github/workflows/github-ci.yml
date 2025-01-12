@@ -46,7 +46,7 @@ jobs:
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
 
-    - name: Build image for Auth Service
+    - name: Build image
       run: |
         docker build -t ${{ steps.login-ecr.outputs.registry }}/${{ needs.build.outputs.image_tag }} -t ${{ steps.login-ecr.outputs.registry }}/econstruction-auth:latest -f Dockerfile .
 
